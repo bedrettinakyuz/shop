@@ -1,0 +1,26 @@
+<form>
+  <div class="form-group">
+    
+    <input 
+    class="form-control" 
+    id="productname"     
+    placeholder="Ürün Ara">
+    
+  </div>
+
+<h3 *ngIf="products; else noProduct">{{ title }}</h3>
+<ng-template #noProduct>
+  <div class="alert alert-primary" role="alert">Bu kategoride ürün yoktur.</div>
+</ng-template>
+<div class="row">
+  <div *ngFor="let product of products" class="card" style="width: 18rem">
+    <img [src] = "product.imageUrl" class="card-img-top" alt="..." />
+    <div class="card-body">
+      <h5 class="card-title">{{product.name }} {{product.price |currency}}</h5>
+      <p class="card-text">
+          {{product.description}}
+      </p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+  </div>
+</div>
